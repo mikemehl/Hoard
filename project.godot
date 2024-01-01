@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/ZzSprite/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
 
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

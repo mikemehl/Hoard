@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddx8pecrhoksp"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t28pu"]
+b = Vector2(6, 0)
+
+[sub_resource type="Gradient" id="Gradient_ac8aa"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.335548)
+
+[node name="PlayerBullet" type="Node2D"]
+
+[node name="body" type="RigidBody2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="body"]
+scale = Vector2(1, 0.4)
+shape = SubResource("SegmentShape2D_t28pu")
+
+[node name="sprite" type="Line2D" parent="body"]
+points = PackedVector2Array(0, 0, 6, 0)
+width = 1.0
+gradient = SubResource("Gradient_ac8aa")
+texture_mode = 2

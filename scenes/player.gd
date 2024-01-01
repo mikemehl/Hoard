@@ -1,4 +1,6 @@
 extends Node2D
+    
+var bullet = preload("res://scenes/player_bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -6,6 +8,11 @@ func _ready():
 
 func _input(event):
   if event.is_action_pressed("ui_accept"):
+    var b = bullet.instantiate()
+    get_tree().root.add_child(b)
+    b.position.x = self.position.x + 12
+    b.position.y = self.position.y
+    b.get_node("body").apply_central_impulse(Vector2(1500, 0))
     print("shoot")
   pass
 

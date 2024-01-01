@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bog4cn5fscrhh"]
+
+[ext_resource type="Script" path="res://addons/ZzSprite/ZzSprite.gd" id="1_htcrt"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_krt3a"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_krt3a")
+
+[node name="ZzSprite" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+script = ExtResource("1_htcrt")
+sprite_seed = 128347129
+mutating_seed = 124790
+recolor_seed = 19274
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(3.03906, 0.962891)
+scale = Vector2(0.195313, 0.268555)
+polygon = PackedVector2Array(-25.8, -18.48, -0.199998, -18.48, 20.28, -11.0327, 20.28, 3.86182, 4.92, 22.48, -30.92, 22.48, -46.28, 3.86182, -46.28, -11.0327)

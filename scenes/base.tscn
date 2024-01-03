@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddilhcocxcatl"]
+[gd_scene load_steps=3 format=3 uid="uid://ddilhcocxcatl"]
 
 [ext_resource type="PackedScene" uid="uid://bog4cn5fscrhh" path="res://scenes/player.tscn" id="1_lskuo"]
+[ext_resource type="PackedScene" uid="uid://twltyw8womqt" path="res://scenes/enemyBase.tscn" id="2_jvb42"]
 
 [node name="Base" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lskuo")]
+unique_name_in_owner = true
 position = Vector2(0.684662, 1.99713)
+
+[node name="EnemyBase" parent="." instance=ExtResource("2_jvb42")]
+position = Vector2(424, 234)
+
+[connection signal="player_moved" from="Player" to="EnemyBase" method="_on_player_moved"]

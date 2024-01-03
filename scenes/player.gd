@@ -6,6 +6,8 @@ const speed = 5
 const bStartOffset = 36
 const bSpeed = 1500
 
+signal player_moved(pos)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
   pass # Replace with function body.
@@ -17,19 +19,20 @@ func _input(event):
     b.position = self.position + direction * bStartOffset
     b.get_node("body").apply_central_impulse(bSpeed * direction)
     print("shoot")
-  elif event.pressed:
-    if event.keycode == KEY_D:
-      direction.y = -1
-      direction.x = 0
-    elif event.keycode == KEY_S:
-      direction.y = 1
-      direction.x = 0
-    elif event.keycode == KEY_A:
-      direction.x = -1
-      direction.y = 0
-    elif event.keycode == KEY_F:
-      direction.x = 1
-      direction.y = 0
+  elif event == InputEventKey:
+    if event.pressed:
+      if event.keycode == KEY_D:
+        direction.y = -1
+        direction.x = 0
+      elif event.keycode == KEY_S:
+        direction.y = 1
+        direction.x = 0
+      elif event.keycode == KEY_A:
+        direction.x = -1
+        direction.y = 0
+      elif event.keycode == KEY_F:
+        direction.x = 1
+        direction.y = 0
   pass
 
 
@@ -43,4 +46,6 @@ func _process(_delta):
     self.position.x -= speed
   if Input.is_action_pressed("ui_right"):
     self.position.x += speed
+  emit_signal("player_moved", self.position)
   pass
+

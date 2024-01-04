@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/enemyBase.gd" id="1_4c0cj"]
 [ext_resource type="Script" path="res://addons/ZzSprite/ZzSprite.gd" id="2_6v7rt"]
 
-[node name="EnemyBase" type="RigidBody2D"]
+[node name="EnemyBase" type="CharacterBody2D"]
 script = ExtResource("1_4c0cj")
 
 [node name="ZzSprite" type="Node2D" parent="."]

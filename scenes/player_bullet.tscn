@@ -3,10 +3,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhx8j"]
 size = Vector2(20, 35)
 
-[node name="PlayerBullet" type="Node2D"]
+[node name="PlayerBullet" type="RigidBody2D"]
 
-[node name="body" type="RigidBody2D" parent="."]
-
-[node name="shape" type="CollisionShape2D" parent="body"]
+[node name="shape" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 0.4)
 shape = SubResource("RectangleShape2D_qhx8j")

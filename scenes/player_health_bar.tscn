@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wva3ue20y5qi"]
+
+[ext_resource type="Script" path="res://scenes/player_health_bar.gd" id="1_k5oqu"]
+
+[sub_resource type="Gradient" id="Gradient_tetfe"]
+colors = PackedColorArray(0.980392, 0, 0, 1, 0.168627, 0.909804, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kgydj"]
+gradient = SubResource("Gradient_tetfe")
+
+[node name="playerHealthBar" type="TextureProgressBar"]
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 260.0
+offset_bottom = 10.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_bottom = 20
+texture_progress = SubResource("GradientTexture1D_kgydj")
+script = ExtResource("1_k5oqu")

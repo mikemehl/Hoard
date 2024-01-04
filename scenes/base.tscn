@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddilhcocxcatl"]
+[gd_scene load_steps=4 format=3 uid="uid://ddilhcocxcatl"]
 
 [ext_resource type="PackedScene" uid="uid://bog4cn5fscrhh" path="res://scenes/player.tscn" id="1_lskuo"]
 [ext_resource type="PackedScene" uid="uid://twltyw8womqt" path="res://scenes/enemyBase.tscn" id="2_jvb42"]
+[ext_resource type="PackedScene" uid="uid://wva3ue20y5qi" path="res://scenes/player_health_bar.tscn" id="3_h8iwh"]
 
 [node name="Base" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lskuo")]
 unique_name_in_owner = true
-position = Vector2(0.684662, 1.99713)
+position = Vector2(167, 480)
 
 [node name="EnemyBase" parent="." instance=ExtResource("2_jvb42")]
-position = Vector2(424, 234)
+position = Vector2(199, 135)
 
+[node name="playerHealthBar" parent="." instance=ExtResource("3_h8iwh")]
+
+[connection signal="player_health_changed" from="Player" to="playerHealthBar" method="_on_player_health_changed"]
 [connection signal="player_moved" from="Player" to="EnemyBase" method="_on_player_moved"]

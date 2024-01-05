@@ -17,19 +17,7 @@ func _on_player_moved(player_pos):
 func _process(delta):
     find_player()
     if hit_cooldown == 0:
-      if player != null:
-        velocity = direction * 100 * delta
-        var collision = move_and_collide(velocity)
-        if collision:
-          var collider = collision.get_collider()
-          if collider.is_in_group("Player"):
-            print(collision.get_normal())
-            velocity = 100 * collision.get_normal()
-            print(velocity)
-            if collider.has_method("take_damage"):
-              collider.take_damage(10)
-            hit_cooldown = 10
-            move_and_slide()
+      move_towards_player(delta)
     else:
       move_and_slide()
       hit_cooldown -= 1
@@ -48,3 +36,18 @@ func take_damage(damage):
   health -= damage
   if health <= 0:
     queue_free()
+
+func move_towards_player(delta):
+  if player != null:
+    velocity = direction * 100 * delta
+    var collision = move_and_collide(velocity)
+    if collision:
+      var collider = collision.get_collider()
+      if collider.is_in_group("Player"):
+        print(collision.get_normal())
+        velocity = 100 * collision.get_normal()
+        print(velocity)
+        if collider.has_method("take_damage"):
+          collider.take_damage(10)
+        hit_cooldown = 10
+        move_and_slide()

@@ -20,8 +20,8 @@ func _input(event):
     var b = bullet.instantiate()
     get_tree().root.add_child(b)
     b.position = self.position + bdirection * bStartOffset
-    b.get_node("body").apply_central_impulse(bSpeed * bdirection)
-    print("shoot")
+    b.set_rotation(bdirection.angle())
+    b.apply_central_impulse(bSpeed * bdirection)
   elif event is InputEventKey and event.pressed:
     if event.keycode == KEY_D:
       bdirection.y = -1

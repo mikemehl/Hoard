@@ -3,6 +3,7 @@ extends CharacterBody2D
 var player = null
 var direction = Vector2(0, 0)
 var hit_cooldown = 0
+var health = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +33,7 @@ func _process(delta):
     else:
       move_and_slide()
       hit_cooldown -= 1
+    print(health)
     pass
 
 func find_player():
@@ -40,3 +42,9 @@ func find_player():
       if player:
         print("Found player")
         player.connect("moved", _on_player_moved)
+
+
+func take_damage(damage):
+  health -= damage
+  if health <= 0:
+    queue_free()

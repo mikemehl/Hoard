@@ -4,7 +4,7 @@ jobs:
   steps:
   - !PushRepository
     name: push
-    remoteUrl: https://github.com/mikemehl/hoard
+    remoteUrl: https://github.com/mikemehl/hoard.git
     userName: mikemehl
     passwordSecret: access-token
     force: false
